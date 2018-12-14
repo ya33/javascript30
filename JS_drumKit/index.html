@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "keys">
+      <div class="key" data-key="65">
+        <kbd>A</kbd>
+        <span class="sound">boom</span>
+      </div>
+      <div class="key" data-key="90">
+        <kbd>Z</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div class="key" data-key="69">
+        <kbd>E</kbd>
+        <span class="sound">hihat</span>
+      </div>
+      <div class="key" data-key="82">
+        <kbd>R</kbd>
+        <span class="sound">kick</span>
+      </div>
+      <div class="key" data-key="84">
+        <kbd>T</kbd>
+        <span class="sound">openhat</span>
+      </div>
+      <div class="key" data-key="89">
+        <kbd>Y</kbd>
+        <span class="sound">ride</span>
+      </div>
+    </div>
+
+  <audio data-key="65" src="sounds/bell.ogg"></audio>
+  <audio data-key="90" src="sounds/togglekeys-sound-off.ogg"></audio>
+  <audio data-key="69" src="sounds/togglekeys-sound-on.ogg"></audio>
+  <audio data-key="82" src="sounds/bell.ogg"></audio>
+  <audio data-key="84" src="sounds/togglekeys-sound-off.ogg"></audio>
+  <audio data-key="89" src="sounds/togglekeys-sound-on.ogg"></audio>
+
+</body>
+
+<script>
+  const removeTransition = (event) => {
+    const keys = document.querySelectorAll('.key');
+    keys.forEach((key) => {
+      if (event.propertyName !== 'transform') return
+      key.classList.remove('playing');
+    });
+  };
+
+  const playSound = (event) => {
+    const sound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+    if (!sound) return;
+
+    key.classList.add('playing');
+    sound.currentTime = 0;
+    sound.play();
+  };
+
+  document.addEventListener("keydown", playSound)
+  document.addEventListener("transitionend", removeTransition)
+
+</script>
+</html>
