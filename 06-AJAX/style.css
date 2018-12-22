@@ -1,0 +1,73 @@
+html {
+  font-family: 'Algreya Sans SC', sans-serif;
+  font-size: 32px;
+  color: white;
+  box-sizing: content-box;
+}
+
+body {
+  background-size: 100%;
+  background-image: url(https://images.unsplash.com/photo-1480843669328-3f7e37d196ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form {
+  width: 400px;
+  margin: 20px auto;
+  z-index: 2;
+}
+
+.search-form > input {
+  border-radius: 2px;
+  border: 2px solid lightgrey;
+  color: grey;
+  background-color: white;
+  height: 1rem;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.suggestions {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.suggestions li {
+  background: white;
+  border: 1px solid lightgrey;
+  list-style: none;
+  font-size: 0.5rem;
+  box-shadow: 0;
+  margin: 0;
+  color: grey;
+  text-transform: capitalize;
+  transition: background 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.h7 {
+  background: #ffc600;
+}
+
+span.population {
+  font-size: 0.3rem;
+}
+
+.suggestions li:nth-child(even) {
+  transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+  background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
+}
+
+.suggestions li:nth-child(odd) {
+  transform: perspective(100px) rotateX(-3deg) translateY(3px);
+  background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+}
