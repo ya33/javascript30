@@ -1,0 +1,37 @@
+:root {
+  --color: green;
+  --spacing: 0rem;
+  --blur: 0rem;
+}
+
+body {
+  background-color: grey;
+  font-size: 30px;
+  text-align: center;
+  color: blue;
+  height: 100vh;
+}
+
+h1 {
+  color: var(--color);
+  font-size: 3rem;
+}
+
+.controls {
+  display: flex;
+  color: white;
+  margin: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  /*text-align: right;*/
+}
+
+input {
+  width: 50vw;
+}
+
+img {
+  background: var(--color);
+  padding: var(--spacing);
+  filter: blur(var(--blur));
+}
