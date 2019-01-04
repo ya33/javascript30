@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    const p = document.querySelector('p');
+    function makeGreen() {
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log("Hello world");
+    // Interpolated
+    console.log("first dog is called %s", dogs[0].name);
+    console.log(`second one is called ${dogs[1].name}`);
+    // Styled
+    console.log('%c HOPE', 'font-size: 32px; color: red; text-shadow: 5px 5px 5px blue');
+    // warning!
+    console.warn ("WARNING!");
+    // Error :|
+    console.error("ERROR!");
+    // Info
+    console.info('This is an information');
+    // Testing
+    console.assert(dogs[0]==='Toto', 'this is not Toto!');
+    // clearing
+    console.clear();
+    // Viewing DOM Elements
+    console.dir(p)
+
+    // Grouping together
+    dogs.forEach((dog) => {
+      console.group(`${dog.name.toUpperCase()}`)
+      console.log(`name: ${dog.name}`);
+      console.log(`age: ${dog.age}`);
+      console.groupEnd(`${dog.name.toUpperCase()}`)
+    });
+
+    // counting
+    console.count('toto')
+    console.count('toto')
+    console.count('tata')
+    console.count('tata')
+    console.count('toto')
+    console.count('tata')
+
+    // timing
+    console.time('giving duration');
+    dogs.forEach((dog) => {
+      console.group(`${dog.name.toUpperCase()}`)
+      console.log(`name: ${dog.name}`);
+      console.log(`age: ${dog.age}`);
+      console.groupEnd(`${dog.name.toUpperCase()}`)
+      });
+    console.timeEnd('giving duration');
+
+    //table
+    console.table(dogs)
+
+  </script>
+</body>
+</html>
